@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Rental System Flow Charts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #666;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Car Rental System Flow Charts</h1>
+    
+    <div class="chart-container">
+        <h2>1. User Registration & Authentication Flow</h2>
+        <div class="mermaid">
+            flowchart TD
+                A[Start] --> B[Visit Website]
+                B --> C{Registered User?}
+                C -->|No| D[Registration Form]
+                C -->|Yes| E[Login Form]
+                D --> F[Enter Personal Details]
+                F --> G[Email Verification]
+                G --> E
+                E --> H[Authenticate]
+                H --> I[Access Dashboard]
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h2>2. Vehicle Booking Process</h2>
+        <div class="mermaid">
+            flowchart TD
+                A[Search Vehicles] --> B[Select Dates]
+                B --> C[Choose Vehicle]
+                C --> D{Check Availability}
+                D -->|Available| E[Enter Booking Details]
+                D -->|Not Available| A
+                E --> F[Calculate Price]
+                F --> G[Process Payment]
+                G -->|Success| H[Booking Confirmation]
+                G -->|Failed| F
+                H --> I[Generate Invoice]
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h2>3. Vehicle Return Process</h2>
+        <div class="mermaid">
+            flowchart TD
+                A[Return Vehicle] --> B[Vehicle Inspection]
+                B -->|Damage Found| C[Assess Damage]
+                B -->|No Damage| D[Update Vehicle Status]
+                C --> E[Calculate Extra Charges]
+                E --> F[Process Additional Payment]
+                F --> D
+                D --> G[Generate Return Receipt]
+                G --> H[Close Booking]
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h2>4. Admin Operations</h2>
+        <div class="mermaid">
+            flowchart TD
+                A[Admin Login] --> B[Admin Dashboard]
+                B --> C{Select Operation}
+                C --> D[Vehicle Management]
+                C --> E[Booking Management]
+                C --> F[User Management]
+                D --> G[Add/Update/Remove Vehicles]
+                E --> H[Process Bookings/Returns]
+                F --> I[Manage User Accounts]
+        </div>
+    </div>
+
+    <div class="chart-container">
+        <h2>5. Payment Processing</h2>
+        <div class="mermaid">
+            flowchart TD
+                A[Start Payment] --> B[Select Payment Method]
+                B --> C{Payment Type}
+                C -->|Credit Card| D[Process Card]
+                C -->|Bank Transfer| E[Process Transfer]
+                D & E --> F{Payment Status}
+                F -->|Success| G[Update Booking]
+                F -->|Failed| H[Show Error]
+                H --> B
+        </div>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+    </script>
+</body>
+</html>
